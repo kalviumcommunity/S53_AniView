@@ -1,0 +1,12 @@
+{
+  "name": "s53_aniview",
+  "version": "1.0.0",
+  "description": "As anime is really popular these days everyone have their own prefrences and taste for their choice to watch so for everyone they have their own underated anime prefrence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
