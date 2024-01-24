@@ -1,0 +1,18 @@
+
+
+
+
+{
+  "name": "s53_aniview",
+  "version": "1.0.0",
+  "description": "As anime is really popular these days, everyone has their own preferences and taste for their choice to watch. So, for everyone, they have their own underrated anime preference.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js", 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "keywords": ["anime", "underrated", "preferences"], 
+  "author": "Dwij", 
+  "license": "ISC"
+}
