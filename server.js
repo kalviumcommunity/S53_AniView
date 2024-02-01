@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Post = require("./models/post");
 const app = express();
 const port = 6969;
+require("dotenv").config()
 
 main()
   .then(() => {
@@ -12,7 +13,7 @@ main()
 
 async function main() {
   await mongoose.connect(
-    "mongodb+srv://dwij:XbW4Lx4eGHDPlKnO@cluster0.u1aj0vn.mongodb.net/list"
+    process.env.MONGO_LINK
   );
 }
 
@@ -78,13 +79,13 @@ const posts = [
   }),
 ];
 
-Post.insertMany(posts)
-  .then((docs) => {
-    console.log("posts inserted successfully");
-  })
-  .catch((err) => {
-    console.error(err);
-});
+// Post.insertMany(posts)
+//   .then((docs) => {
+//     console.log("posts inserted successfully");
+//   })
+//   .catch((err) => {
+//     console.error(err);
+// });
 
 app.get("/ping", (req, res) => {
   res.send("pong");
