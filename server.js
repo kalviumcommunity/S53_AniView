@@ -5,11 +5,7 @@ const app = express();
 const port = 6969;
 require("dotenv").config()
 
-main()
-  .then(() => {
-    console.log("Connection Successful!");
-  })
-  .catch((err) => console.log(err));
+
 
 async function main() {
   await mongoose.connect(
@@ -92,7 +88,11 @@ app.get("/ping", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("root path");
+  main()
+  .then(() => {
+    res.send("Connection Successful!");
+  })
+  .catch((err) => res.send(err));
 });
 
 app.listen(port, () => {
