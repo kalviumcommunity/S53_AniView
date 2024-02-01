@@ -3,6 +3,9 @@
 ## Main Idea
 As anime is really popular these days everyone have their own prefrences and taste for their choice to watch so for everyone they have their own underated anime prefrence
 
+## Deployed Link
+https://aniview-gvbr.onrender.com
+
 ## Features
 1. Adding a list of popular/most watched anime according to statistics like:-
 
@@ -14,3 +17,4 @@ git clone https://github.com/kalviumcommunity/S53_AniView.git
 2. *Navigate to Project Directory:* cd S53_AniView
 3. *Open the direcory in a Code Editor*
 4. *Install Dependencies:* npm install
+
