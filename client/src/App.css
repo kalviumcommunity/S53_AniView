@@ -1,0 +1,95 @@
+@font-face {
+  font-family: kero;
+  src: url(./../kero-kero-cufonfonts/Kero\ kero.ttf);
+}
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+.nav-bar {
+  font-family: kero;
+  width: 100vw;
+  height: 8vh;
+  background-color: black;
+  margin-bottom: 0%;
+  box-shadow: 0px 5px 35px 1px rgb(0, 0, 0);
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: 0 3% 0 3%;
+}
+
+.bg-img {
+  width: 100vw;
+  height: 92vh;
+  background-image: url("./../Bg\ image.png");
+  background-size: 100% 100%;
+  position: absolute;
+  top: 8vh;
+  z-index: -1;
+}
+.logo {
+  /* border: 2px red solid; */
+  width: 50%;
+  height: 75%;
+  background-image: url(./../logo.png);
+  background-size: 28% 100%;
+  background-repeat: no-repeat;
+}
+.nav-box {
+  /* border: 2px red solid; */
+  width: 50%;
+  height: 95%;
+  font-size: 1.5vmax;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 5%;
+}
+.nav-content {
+  color: #c38b1d;
+}
+.home-title {
+  color: #c38b1d;
+  width: 100vw;
+  text-align: center;
+  font-size: 6vmax;
+  /* height: 50vh; */
+  font-family: kero;
+  letter-spacing: 0.5vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title-box {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.home-subtitle {
+  font-family: "Rubik", sans-serif;
+  color: #c38b1d;
+  width: 29vw;
+  text-align: center;
+  font-size: 2.5vmax;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.join-button {
+  width: 10%;
+  height: 5%;
+  background-color: #c38b1d;
+  border: none;
+  border-radius: 25px;
+  font-size: 1vmax;
+  color: rgb(255, 227, 149);
+  box-shadow: 1px 1px 15px 1px #c38b1d;
+}
+.join-button:hover {
+  transition: all 0.3s;
+  transform: scale(1.1);
+}
