@@ -81,7 +81,7 @@
 }
 .join-button {
   width: 10%;
-  height: 5%;
+  height: 6%;
   background-color: #c38b1d;
   border: none;
   border-radius: 25px;
@@ -92,4 +92,79 @@
 .join-button:hover {
   transition: all 0.3s;
   transform: scale(1.1);
+}
+.main-div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.list-box {
+  height: 68%;
+  display: flex;
+  justify-content: space-evenly;
+  /* border: red 3px solid; */
+}
+.list-ele {
+  background-color: black;
+  opacity: 0.9;
+  box-shadow: 0px 1px 15px 2px #d99d26;
+  width: 25%;
+  height: 85%;
+  border-radius: 3vmin;
+  /* padding-top: 2vmin; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.img-box {
+  height: 60%;
+  /* border: red 3px solid; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name-box {
+  /* display: flex; */
+  /* height: 10%; */
+  width: 100%;
+  /* justify-content: space-between; */
+  padding: 0 2vmax 0 2vmax;
+  color: #d99d26;
+  /* border: 3px red solid; */
+}
+.name-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 8  4%; */
+}
+.title-div {
+  font-size: 2.5vmax;
+  /* width: 55%; */
+  font-weight: 900;
+  /* color: white; */
+  /* border: red 2px solid; */
+}
+.category-div {
+  font-size: 1.4vmax;
+  font-weight: 500;
+  /* align-self: center; */
+  color: #e2cfa9;
+
+  /* border: red 2px solid; */
+}
+.user-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4vmax 0 4vmax;
+}
+.like,
+.comment {
+  display: flex;
+  color: #c38b1d;
+  justify-content: space-between;
+  width: 23%;
+  align-items: center;
+  font-size: 1.5vmax;
 }
