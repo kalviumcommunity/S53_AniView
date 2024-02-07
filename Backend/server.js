@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Post = require("./models/post");
 const app = express();
+const router = require("./routes")
 const port = 6969;
 require("dotenv").config()
 
@@ -94,6 +95,8 @@ app.get("/", (req, res) => {
   })
   .catch((err) => res.send(err));
 });
+
+app.use("/list",router)
 
 app.listen(port, () => {
   console.log(`App is listening on ${port}`);
