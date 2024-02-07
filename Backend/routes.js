@@ -2,7 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const Post = require("./models/post")
 const app = express()
-const port = 6969
+const router = express.Router()
 app.use(express.json())
 require("dotenv").config()
 
@@ -19,18 +19,18 @@ async function main() {
   .catch((err) => console.log(err));
 
 
-  app.get('/',async(req,res)=>{
+  router.get('/',async(req,res)=>{
     await Post.find().then((data)=>{
         res.send(data)
     })
 })
 
-app.post('/',async(req,res)=>{
+router.post('/',async(req,res)=>{
     let newPost = new Post(req.body)
     newPost.save().then(()=>{res.send("data added successfuly")}).catch((err)=>res.send(err))
 })
 
-app.delete('/',async(req,res)=>{
+router.delete('/',async(req,res)=>{
     try {
         let toDelete = req.body.title
         let Del = await Post.deleteOne({title:toDelete})
@@ -44,7 +44,7 @@ app.delete('/',async(req,res)=>{
     }
 })
 
-app.put("/:title",async(req,res)=>{
+router.put("/:title",async(req,res)=>{
     const {title}= req.params
     const newData = req.body.title
     try {
@@ -60,8 +60,8 @@ app.put("/:title",async(req,res)=>{
     }
 })
 
+module.exports=router
 
-
-app.listen(port,()=>{
-    console.log("App listen at 6969")
-})
+// .listen(port,()=>{
+//     console.log("App listen at 6969")
+// })
