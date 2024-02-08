@@ -3,8 +3,11 @@
 ## Main Idea
 As anime is really popular these days everyone have their own prefrences and taste for their choice to watch so for everyone they have their own underated anime prefrence
 
-## Deployed Link 
+## Deployed Link (backend)
 https://aniview-gvbr.onrender.com
+
+## Deployed Link (Front-end)
+https://aniview.vercel.app/
 
 ## Features
 1. Adding a list of popular/most watched anime according to statistics like:-
