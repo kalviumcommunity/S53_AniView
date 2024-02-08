@@ -5,6 +5,7 @@ const app = express();
 const router = require("./routes")
 const port = 6969;
 require("dotenv").config()
+const cors = require("cors")
 
 
 
@@ -13,7 +14,7 @@ async function main() {
     process.env.MONGO_LINK
   );
 }
-
+app.use(cors())
 const posts = [
   new Post({
     title: "Naruto",
