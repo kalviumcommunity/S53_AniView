@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div>
+    <div className="container">
     <div className="bg-img"></div>
       <Navbar />
       <Allroutes/>

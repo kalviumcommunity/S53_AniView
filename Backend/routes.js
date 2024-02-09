@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const Post = require("./models/post")
 const app = express()
 const router = express.Router()
-app.use(express.json())
+router.use(express.json())
 require("dotenv").config()
 
 async function main() {
