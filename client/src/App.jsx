@@ -1,3 +1,4 @@
+import Allroutes from "./components/Allroutes";
 import Home from "./components/Home";
 import Listing from "./components/Listing";
 import Navbar from "./components/Navbar";
@@ -8,10 +9,7 @@ export default function App() {
     <div>
     <div className="bg-img"></div>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/list" element={<Listing />} />
-      </Routes>
+      <Allroutes/>
     </div>
   );
 }
