@@ -1,10 +1,16 @@
 import "./../App.css";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 export default function Post({ e }) {
+  const navigate = useNavigate();
+
+  const postClick = () => {
+    navigate(`/list/details/${e._id}`);
+  };
   return (
-    <div className="list-ele">
+    <div className="list-ele" onClick={postClick}>
       <div className="img-box">
         <img src={e.image} />
       </div>
@@ -22,11 +28,15 @@ export default function Post({ e }) {
       </div>
       <div className="user-div">
         <div className="like">
-          <FaHeart color=" #c38b1d" size="1.7vmax" />
+          <FaHeart className="like-icon" color=" #c38b1d" size="1.7vmax" />
           <p className="like-count">25</p>
         </div>
         <div className="comment">
-          <MdOutlineInsertComment color="#c38b1d" size="1.7vmax" />
+          <MdOutlineInsertComment
+            className="comment-icon"
+            color="#c38b1d"
+            size="1.7vmax"
+          />
           <p className="comment-count">5</p>
         </div>
       </div>

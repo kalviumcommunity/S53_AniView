@@ -6,10 +6,11 @@ import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="container">
+    <div>
     <div className="bg-img"></div>
       <Navbar />
       <Allroutes/>
+
     </div>
   );
 }

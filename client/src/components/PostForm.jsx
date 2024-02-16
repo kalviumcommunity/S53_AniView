@@ -41,7 +41,7 @@ export default function PostForm() {
           </FormLabel>
           <Input
             type="text"
-            borderColor="black"
+            borderColor="#d99d26"
             {...register("title", {
               required: "Title is required",
               maxLength: { value: 40, message: "Max 40 Chars" },
@@ -55,7 +55,7 @@ export default function PostForm() {
           </FormLabel>
           <Input
             type="text"
-            borderColor="black"
+            borderColor="#d99d26"
             {...register("category", {
               required: "Category is required",
             })}
@@ -68,14 +68,14 @@ export default function PostForm() {
           </FormLabel>
           <Input
             type="text"
-            borderColor="black"
+            borderColor="#d99d26"
             {...register("image", {
               required: "Provide a valid image url",
             })}
           />
           <p className="err">{errors.image?.message}</p>
         </FormControl>
-        <Button type="submit" colorScheme="red">
+        <Button type="submit" backgroundColor="#d99d26" color="white">
           Submit
         </Button>
       </form>
