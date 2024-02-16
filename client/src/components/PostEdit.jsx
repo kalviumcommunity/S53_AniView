@@ -28,7 +28,7 @@ export default function NewPost() {
 
   const FormSubmitHandler = (formData) => {
     axios
-      .put(`http://localhost:6969/list/${data._id}`, formData)
+      .put(`https://aniview-gvbr.onrender.com/list/${data._id}`, formData)
       .then(() => {
         console.log("ADDED");
         navigate(`/list/details/${data._id}`);
@@ -41,7 +41,7 @@ export default function NewPost() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:6969/list/${id}`)
+      .get(`https://aniview-gvbr.onrender.com/list/${id}`)
       .then((res) => {
         console.log(res.data);
         setData(res.data);

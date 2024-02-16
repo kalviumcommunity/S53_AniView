@@ -12,7 +12,7 @@ export default function PostDetail() {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get(`http://localhost:6969/list/${id}`)
+      .get(`https://aniview-gvbr.onrender.com/list/${id}`)
       .then((res) => {
         console.log(res.data);
         setData(res.data);
@@ -32,7 +32,7 @@ export default function PostDetail() {
     console.log(result);
     if (result) {
       axios
-        .delete(`http://localhost:6969/list/${data._id}`)
+        .delete(`https://aniview-gvbr.onrender.com/list/${data._id}`)
         .then((res) => {
           console.log(res);
           toast.success("Deleted");
