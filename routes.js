@@ -68,9 +68,10 @@ router.put("/:id", async (req, res) => {
     res.send("Updated!"); // Sending a success response
   } catch (error) {
     console.error(error); // Logging the error for debugging
-    res.status(505).send("Server error"); // Sending a server error response
+    res.status(500).send("Server error"); // Sending a server error response
   }
 });
+
 
 module.exports = router;
 

@@ -58,8 +58,10 @@ export default function PostDetail() {
             <img src={data.image} />
           </div>
           <div className="rest-detail">
-            <p className="post-title">{data.title}</p>
-            <p className="post-description"></p>
+            <p className="post-title">
+              <u>{data.title}</u>
+            </p>
+            <p className="post-description">{data.description}</p>
             <div className="buttons">
               <Button
                 type="submit"
