@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -11,13 +11,12 @@ import {
   Button,
   Textarea,
 } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function NewPost() {
   const navigate = useNavigate();
-  const [data, setData] = useState({});
   const { id } = useParams();
+  const [data, setData] = useState({});
 
   const {
     register,
@@ -27,9 +26,14 @@ export default function NewPost() {
   } = useForm();
 
   const FormSubmitHandler = (formData) => {
+    if (!data || !data._id) {
+      console.error("Data or data ID is missing!");
+      return;
+    }
+
     axios
-      .put(`https://aniview-gvbr.onrender.com/list/${data._id}`, formData)
-      .then(() => {
+      .put(`https://aniview-gvbr.onrender.com/list/${id}`, formData)
+      .then((res) => {
         console.log("ADDED");
         navigate(`/list/details/${data._id}`);
       })
@@ -52,13 +56,13 @@ export default function NewPost() {
       })
       .catch((err) => {
         console.log(err);
-        if (err.response.data === "Post not found..!") {
+        if (err.response?.data === "Post not found..!") {
           toast.error("Post not found!");
         } else {
           toast.error("Server side error or wrong ID..!");
         }
       });
-  }, [id, setValue]); // Make sure to add `setValue` to dependencies array to avoid eslint warnings
+  }, [id, setValue]);
 
   return (
     <div className="form">
@@ -86,16 +90,16 @@ export default function NewPost() {
         </FormControl>
         <FormControl>
           <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
-            Categrory
+            Category
           </FormLabel>
           <Input
             type="text"
             borderColor="#d99d26"
             {...register("category", {
-              required: "Tagline is required",
+              required: "Category is required",
             })}
           />
-          <p className="err">{errors.tagline?.message}</p>
+          <p className="err">{errors.category?.message}</p>
         </FormControl>
         <FormControl>
           <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">

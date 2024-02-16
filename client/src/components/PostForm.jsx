@@ -1,7 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { FormControl, FormLabel, Input, Text, Button } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Text,
+  Button,
+  Textarea,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -61,6 +68,18 @@ export default function PostForm() {
             })}
           />
           <p className="err">{errors.category?.message}</p>
+        </FormControl>
+        <FormControl>
+          <FormLabel fontSize="1.2vmax" as="i" fontWeight="550">
+            Description
+          </FormLabel>
+          <Textarea
+            borderColor="#d99d26"
+            {...register("description", {
+              required: "Description is required",
+            })}
+          />
+          <p className="err">{errors.description?.message}</p>
         </FormControl>
         <FormControl>
           <FormLabel fontSize="1.2vmax" as="b" fontWeight="550">
