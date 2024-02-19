@@ -11,7 +11,7 @@ export default function Navbar() {
 
           <div className="nav-content">Home</div>
         </Link>
-          <div className="nav-content">Category</div>
+          <div className="nav-content">List</div>
           <div className="nav-content">Sign Up / Login</div>
         </div>
         <div></div>
