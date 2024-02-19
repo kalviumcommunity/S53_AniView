@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Listing from "./Listing";
 import PostForm from "./PostForm";
-import PostDetail from "./postDetail";
+import PostDetail from "./PostDetail";
 import PostEdit from "./PostEdit";
 export default function Allroutes() {
   return (
