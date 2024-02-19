@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Post = require("./models/post");
+const { postValidation } = require("./utils/postValidation");
 const app = express();
 const router = express.Router();
 router.use(express.json());
@@ -15,6 +16,15 @@ main()
     console.log("Connection Successful!");
   })
   .catch((err) => console.log(err));
+
+const validatePost = (req, res, next) => {
+  let { error } = postValidation.validate(req.body);
+  if (error) {
+    throw new ExpressError(400, error);
+  } else {
+    next();
+  }
+};
 
 router.get("/", async (req, res) => {
   await Post.find().then((data) => {
@@ -34,7 +44,7 @@ router.get("/:id", async (req, res) => {
     res.status(505).send(error);
   }
 });
-router.post("/", async (req, res) => {
+router.post("/", validatePost, async (req, res) => {
   let newPost = new Post(req.body);
   newPost
     .save()
@@ -57,7 +67,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", validatePost, async (req, res) => {
   try {
     const { id } = req.params; // Extracting the ID from request parameters
     const newData = req.body; // Getting the updated data from the request body
