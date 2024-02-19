@@ -20,7 +20,7 @@ main()
 const validatePost = (req, res, next) => {
   let { error } = postValidation.validate(req.body);
   if (error) {
-    throw new ExpressError(400, error);
+    res.status(400).send(error);
   } else {
     next();
   }
