@@ -37,6 +37,7 @@ export default function SignUp() {
       .then((res) => {
         setCookie("username", e.username, 365);
         setLogin(loginCheck());
+        setCookie("auth-token", res.data, 365);
         setTimeout(() => {
           navigate("/list");
         }, 1200);

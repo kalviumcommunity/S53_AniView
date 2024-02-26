@@ -31,6 +31,21 @@ const validatePost = (req, res, next) => {
   }
 };
 
+
+const jwtVerify = (req, res, next) => {
+  try {
+    let { authorization } = req.headers;
+    let result = jwt.verify(authorization, process.env.JWT_PASS);
+    // console.log(result.username);
+    next();
+  } catch (err) {
+    res
+      .status(403)
+      .send("Not authorised to access this route without correct auth token");
+  }
+};
+
+
 router.get("/", async (req, res) => {
   await Post.find().then((data) => {
     res.send(data);
@@ -109,7 +124,7 @@ UserRouter.put("/:username", async (req, res) => {
     res.status(500).send(err.message);
   }
 });
-router.post("/", validatePost, async (req, res) => {
+router.post("/", jwtVerify, validatePost, async (req, res) => {
   let newPost = new Post(req.body);
   newPost
     .save()
@@ -144,7 +159,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", validatePost, async (req, res) => {
+router.put("/:id", jwtVerify, validatePost, async (req, res) => {
   try {
     const { id } = req.params; // Extracting the ID from request parameters
     const newData = req.body; // Getting the updated data from the request body
