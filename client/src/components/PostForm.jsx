@@ -27,7 +27,7 @@ export default function PostForm() {
   //   console.log(watch());
   const FormSubmitHandler = (data) => {
     axios
-      .post("http://localhost:6969/list", data, {
+      .post("https://aniview-gvbr.onrender.com/list", data, {
         headers: {
           Authorization: token,
         },

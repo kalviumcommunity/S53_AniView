@@ -33,7 +33,7 @@ export default function SignUp() {
   // console.log(errors);
   const FormSubmitHandler = (e) => {
     axios
-      .post("http://localhost:6969/user", e)
+      .post("https://aniview-gvbr.onrender.com/user", e)
       .then((res) => {
         setCookie("username", e.username, 365);
         setLogin(loginCheck());
