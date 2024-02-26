@@ -26,7 +26,7 @@ export default function Post({ e }) {
           </i>
         </div>
       </div>
-      <div className="user-div">
+      {/* <div className="user-div">
         <div className="like">
           <FaHeart className="like-icon" color=" #c38b1d" size="1.7vmax" />
           <p className="like-count">25</p>
@@ -39,7 +39,7 @@ export default function Post({ e }) {
           />
           <p className="comment-count">5</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

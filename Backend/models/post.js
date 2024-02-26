@@ -8,6 +8,10 @@ const List = mongoose.model("List", {
     type: String,
     required: true,
   },
+  username:{
+    type: String,
+    required:true
+  },
   likes: {
     type: Number,
   },
