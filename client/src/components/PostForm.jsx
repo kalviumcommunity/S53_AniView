@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import {
@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getCookie } from "../utils/cookies";
 
 export default function PostForm() {
   const navigate = useNavigate();
@@ -19,12 +20,18 @@ export default function PostForm() {
     handleSubmit,
     watch,
     reset,
+    setValue,
     formState: { errors },
   } = useForm();
+  const token = getCookie("auth-token");
   //   console.log(watch());
   const FormSubmitHandler = (data) => {
     axios
-      .post("https://aniview-gvbr.onrender.com/list", data)
+      .post("http://localhost:6969/list", data, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then(() => {
         console.log("ADDED");
         navigate("/list");
@@ -33,6 +40,10 @@ export default function PostForm() {
         console.log(err);
       });
   };
+  const username = getCookie("username");
+  useEffect(() => {
+    setValue("username", username);
+  });
   return (
     <div className="form">
       <form className="main-form" onSubmit={handleSubmit(FormSubmitHandler)}>
@@ -42,6 +53,17 @@ export default function PostForm() {
         <Text as="b" fontSize="1vmax">
           Enter the following details!
         </Text>
+        <FormControl>
+          <FormLabel fontSize="1.2vmax" as="b" fontWeight="550">
+            Username
+          </FormLabel>
+          <Input
+            isDisabled
+            type="text"
+            borderColor="#d99d26"
+            {...register("username")}
+          />
+        </FormControl>
         <FormControl>
           <FormLabel fontSize="1.2vmax" as="b" fontWeight="550">
             Title

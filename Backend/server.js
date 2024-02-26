@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const router = require("./routes");
+const {router,UserRouter} = require("./routes");
 const port = 6969;
+
 require("dotenv").config();
 const cors = require("cors");
 const List = require("./models/post");
@@ -106,7 +107,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/list", router);
-
+app.use("/user", UserRouter)
 app.listen(port, () => {
   console.log(`App is listening on ${port}`);
 });

@@ -1,10 +1,12 @@
 import { Button } from "@chakra-ui/react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import "./../App.css";
+import { AppContext } from "./Context";
+import { getCookie } from "../utils/cookies";
 
 export default function PostDetail() {
   const navigate = useNavigate();
@@ -50,6 +52,34 @@ export default function PostDetail() {
     navigate(`/list/edit/${data._id}`);
   };
 
+  const username = getCookie("username");
+  const adminOptions = () => {
+    if (data.username == username) {
+      return (
+        <div className="buttons">
+          <Button
+            type="submit"
+            onClick={editPost}
+            background="#c38b1d"
+            color="white"
+            boxShadow="1px 1px 15px 1px #c38b1d"
+          >
+            Edit
+          </Button>
+          <Button
+            type="submit"
+            onClick={deletePost}
+            background="#c38b1d"
+            color="white"
+            boxShadow="1px 1px 15px 1px #c38b1d"
+          >
+            Delete
+          </Button>
+        </div>
+      );
+    }
+  };
+
   return (
     <>
       <div className="post-detail-div">
@@ -62,26 +92,7 @@ export default function PostDetail() {
               <u>{data.title}</u>
             </p>
             <p className="post-description">{data.description}</p>
-            <div className="buttons">
-              <Button
-                type="submit"
-                onClick={editPost}
-                background="#c38b1d"
-                color="white"
-                boxShadow="1px 1px 15px 1px #c38b1d"
-              >
-                Edit
-              </Button>
-              <Button
-                type="submit"
-                onClick={deletePost}
-                background="#c38b1d"
-                color="white"
-                boxShadow="1px 1px 15px 1px #c38b1d"
-              >
-                Delete
-              </Button>
-            </div>
+            {adminOptions()}
           </div>
         </div>
       </div>
