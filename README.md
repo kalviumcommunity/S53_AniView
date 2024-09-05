@@ -10,9 +10,13 @@ https://aniview-gvbr.onrender.com
 https://aniview.vercel.app/
 
 ## Features
-1. Adding a list of popular/most watched anime according to statistics like:-
+1. Can add your favourite anime by posting it to a global post page
+2. Added User authentication and authorization
+3. Using jwt for authorization
+4. Explore new anime by viewing others posts.
+5. Used ReactJs for the frontend development.
+6. Used Mongodb as a database and express to make Web server and APIs
 
-![](https://preview.redd.it/top-10-anime-of-the-week-spring-2023-anime-corner-v0-cyjwc5lfquta1.png?auto=webp&s=dc0dc554a15171e05102784adc0d94ca3666ce48)
 
 ## How to contribute 
 1. *Clone the Repository:*
